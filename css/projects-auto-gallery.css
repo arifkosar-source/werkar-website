@@ -1,0 +1,22 @@
+/* Automatically generated WERKAR portfolio gallery */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 26px}
+.filter{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:99px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.filter:hover,.filter.active{background:var(--red);border-color:var(--red);color:#fff}
+.filter:hover{transform:translateY(-1px)}
+.filter-count{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#f0f1f2;color:var(--muted);font-size:10px}
+.filter.active .filter-count{background:rgba(255,255,255,.18);color:#fff}
+.project-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;transition:opacity .2s,transform .2s}
+.project-gallery.is-changing{opacity:0;transform:translateY(6px)}
+.project-tile{min-width:0;background:#fff;border:1px solid var(--line);overflow:hidden;border-radius:9px;box-shadow:0 6px 20px #1111;transition:transform .25s,box-shadow .25s}
+.project-tile:hover,.project-tile:focus-within{transform:translateY(-4px);box-shadow:0 14px 30px #1112}
+.project-tile a{display:block;height:100%;color:inherit;text-decoration:none}
+.project-tile img{display:block;width:100%;height:220px;object-fit:cover;transition:transform .4s ease,filter .4s ease}
+.project-tile a:hover img,.project-tile a:focus-visible img{transform:scale(1.045);filter:brightness(1.04)}
+.project-tile-info{display:grid;gap:5px;padding:13px 15px 15px}
+.project-tile-info strong{font-size:14px;line-height:1.35;color:var(--ink)}
+.project-tile-info small{font-size:12px;line-height:1.4;color:var(--muted)}
+.project-gallery-empty{grid-column:1/-1;margin:0;padding:30px 24px;border:1px dashed var(--line);border-radius:9px;background:#fff;color:var(--muted);text-align:center}
+@media(max-width:1000px){.project-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.project-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.project-tile img{height:180px}}
+@media(max-width:430px){.project-gallery{grid-template-columns:1fr}.project-tile img{height:230px}.filters{gap:7px}.filter{padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){.project-gallery,.filter,.project-tile,.project-tile img{transition:none}}
