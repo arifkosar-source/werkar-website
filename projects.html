@@ -29,4 +29,4 @@ const year=document.getElementById('year');if(year)year.textContent=new Date().g
 const filters=document.querySelectorAll('.filter'), projectTiles=document.querySelectorAll('.project-tile');
 filters.forEach(button=>button.addEventListener('click',()=>{const selected=button.dataset.filter;filters.forEach(item=>item.classList.toggle('active',item===button));projectTiles.forEach(tile=>tile.hidden=selected!=='all'&&tile.dataset.category!==selected);}));
 setLang(lang);</script><script src="js/language-de.js"></script><script src="js/language-session.js"></script>
-<script src="js/projects-gallery-data.js"></script><script src="js/projects-auto-gallery.js"></script></body></html>
+<script src="js/projects-gallery-data.js"></script><script src="js/projects-auto-gallery.js"></script><script src="js/language-brand.js"></script></body></html>
