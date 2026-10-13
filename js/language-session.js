@@ -11,12 +11,14 @@
     const next=params.toString(); a.setAttribute('href',file+(next?'?'+next:'')+hash);
   });
   const activateGerman=()=>{try{localStorage.setItem(storageKey,'de')}catch(e){} updateLinks(true);};
-  const clearGerman=()=>{try{localStorage.removeItem(storageKey)}catch(e){} updateLinks(false);};
+  const clearGerman=(language='en')=>{try{localStorage.setItem(storageKey,language)}catch(e){} updateLinks(language==='de');};
   document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('a[href="de-index.html"],a[href^="de-index.html?"]').forEach(a=>a.addEventListener('click',activateGerman));
     ['de','deBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',activateGerman);});
-    ['tr','trBtn','en','enBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',clearGerman);});
-    document.querySelectorAll('a[aria-label="Türkçe"],a[aria-label="English"]').forEach(a=>a.addEventListener('click',clearGerman));
+    ['tr','trBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',()=>clearGerman('tr'));});
+    ['en','enBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',()=>clearGerman('en'));});
+    document.querySelectorAll('a[aria-label="Türkçe"]').forEach(a=>a.addEventListener('click',()=>clearGerman('tr')));
+    document.querySelectorAll('a[aria-label="English"]').forEach(a=>a.addEventListener('click',()=>clearGerman('en')));
     if(!currentHasGerman()){
       let isTurkish=false;try{isTurkish=localStorage.getItem(storageKey)==='tr'}catch(e){}
       const currentFile=location.pathname.split('/').pop().toLowerCase().replace(/\.html$/,'');

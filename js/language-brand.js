@@ -34,7 +34,15 @@
     });
   };
   document.addEventListener('DOMContentLoaded',update);
-  document.addEventListener('click',event=>{if(event.target.closest('#tr,#trBtn,#en,#enBtn,#de,#deBtn,.lang'))queueMicrotask(update)});
+  document.addEventListener('click',event=>{
+    const control=event.target.closest('#tr,#trBtn,#en,#enBtn,#de,#deBtn,.nav-tools a.lang');
+    if(!control)return;
+    const label=(control.getAttribute('aria-label')||'').toLowerCase();
+    const language=label==='türkçe'?'tr':label==='english'?'en':label==='deutsch'?'de':(control.id||'').toLowerCase().replace('btn','');
+    if(!choices[language])return;
+    try{localStorage.setItem('werkarLang',language)}catch(e){}
+    queueMicrotask(()=>update(language));
+  });
   window.addEventListener('werkar:languagechange',update);
   window.addEventListener('pageshow',update);
   update();
