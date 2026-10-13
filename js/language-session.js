@@ -19,15 +19,15 @@
     document.querySelectorAll('a[aria-label="Türkçe"],a[aria-label="English"]').forEach(a=>a.addEventListener('click',clearGerman));
     if(!currentHasGerman()){
       let isTurkish=false;try{isTurkish=localStorage.getItem(storageKey)==='tr'}catch(e){}
-      const currentFile=location.pathname.split('/').pop().toLowerCase();
-      if(isTurkish&&currentFile==='index.html'){
+      const currentFile=location.pathname.split('/').pop().toLowerCase().replace(/\.html$/,'');
+      if(isTurkish&&(currentFile==='index'||currentFile==='')){
         location.replace('1-index.html'+location.search+location.hash);
       }
       return;
     }
     activateGerman();
-    const file=location.pathname.split('/').pop().toLowerCase();
-    if(file==='index.html'||file==='1-index.html'){
+    const file=location.pathname.split('/').pop().toLowerCase().replace(/\.html$/,'');
+    if(file==='index'||file==='1-index'){
       const target='de-index.html?lang=de'+location.hash;
       if(!location.href.endsWith(target))location.replace(target);
       return;
