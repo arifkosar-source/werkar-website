@@ -17,7 +17,14 @@
     ['de','deBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',activateGerman);});
     ['tr','trBtn','en','enBtn'].forEach(id=>{const b=document.getElementById(id);if(b)b.addEventListener('click',clearGerman);});
     document.querySelectorAll('a[aria-label="Türkçe"],a[aria-label="English"]').forEach(a=>a.addEventListener('click',clearGerman));
-    if(!currentHasGerman())return;
+    if(!currentHasGerman()){
+      let isTurkish=false;try{isTurkish=localStorage.getItem(storageKey)==='tr'}catch(e){}
+      const currentFile=location.pathname.split('/').pop().toLowerCase();
+      if(isTurkish&&currentFile==='index.html'){
+        location.replace('1-index.html'+location.search+location.hash);
+      }
+      return;
+    }
     activateGerman();
     const file=location.pathname.split('/').pop().toLowerCase();
     if(file==='index.html'||file==='1-index.html'){

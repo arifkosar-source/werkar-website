@@ -5,7 +5,6 @@
     const file=location.pathname.split('/').pop().toLowerCase();
     if(file==='1-index.html')return 'tr';
     if(file==='de-index.html')return 'de';
-    if(file==='index.html')return 'en';
     try { const saved=localStorage.getItem('werkarLang'); if(choices[saved])return saved; } catch(e) {}
     const pageLang=(document.documentElement.lang||'').slice(0,2).toLowerCase();
     return choices[pageLang]||'en';
