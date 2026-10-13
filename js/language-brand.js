@@ -9,8 +9,8 @@
     const pageLang=(document.documentElement.lang||'').slice(0,2).toLowerCase();
     return choices[pageLang]||'en';
   };
-  const update=()=>{
-    const lang=selected();
+  const update=(requestedLanguage)=>{
+    const lang=choices[requestedLanguage]?requestedLanguage:selected();
     const file=location.pathname.split('/').pop().toLowerCase().replace(/\.html$/,'');
     if(file==='index'||file==='1-index'||file==='de-index'){
       try { localStorage.setItem('werkarLang',lang); } catch(e) {}
