@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>WERKAR | Proje Talepleri</title>
+  <style>
+    :root{font-family:Inter,Arial,sans-serif;color:#202326;background:#f5f6f7}*{box-sizing:border-box}body{margin:0}.top{background:#202830;color:#fff;padding:24px max(24px,calc((100% - 1200px)/2))}.top h1{margin:0 0 6px}.top p{margin:0;color:#d5d9dc}.wrap{width:min(1200px,calc(100% - 32px));margin:28px auto}.panel,.card{background:#fff;border:1px solid #e1e3e4;border-radius:10px;padding:20px;box-shadow:0 8px 28px #1018200d}.login{display:flex;gap:10px;flex-wrap:wrap}.login input{flex:1;min-width:220px}.input,button{font:inherit;padding:12px 14px;border:1px solid #cfd3d6;border-radius:7px}.primary{background:#bd202b;color:#fff;border:0;font-weight:700;cursor:pointer}.muted{color:#687078}.notice{margin-top:12px}.list{display:grid;gap:14px;margin-top:20px}.card h2{font-size:19px;margin:0 0 8px}.meta{display:flex;gap:14px;flex-wrap:wrap;color:#687078;font-size:14px}.details{white-space:pre-wrap;line-height:1.55;margin:14px 0}.card footer{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.status{font-weight:700;color:#bd202b}.hidden{display:none!important}@media(max-width:600px){.top{padding:22px 16px}.card footer{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="top"><h1>WERKAR Proje Talepleri</h1><p>Gelen teklif ve proje başvurularını güvenli yönetim alanından inceleyin.</p></header>
+  <main class="wrap">
+    <section class="panel" aria-labelledby="loginTitle">
+      <h2 id="loginTitle">Yönetici girişi</h2>
+      <p class="muted">Yönetici erişim anahtarını girin. Anahtar bu tarayıcı sekmesinde saklanır.</p>
+      <form id="loginForm" class="login"><input id="token" class="input" type="password" autocomplete="current-password" minlength="32" required placeholder="Yönetici erişim anahtarı"><button class="primary" type="submit">Talepleri göster</button><button id="logout" type="button">Çıkış</button></form>
+      <p id="message" class="notice" role="status" aria-live="polite"></p>
+    </section>
+    <section id="inquiryList" class="list" aria-live="polite"></section>
+  </main>
+  <script src="js/inquiries-admin.js" defer></script>
+</body>
+</html>

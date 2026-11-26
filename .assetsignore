@@ -1,0 +1,14 @@
+.git/
+.github/
+backups/
+database/
+worker/
+wrangler.jsonc
+wrangler.jsonc.example
+.assetsignore
+.assetsignore.example
+.dev.vars
+.dev.vars.*
+image-manager.html
+image-manager-server.js
+image-manager-server.py

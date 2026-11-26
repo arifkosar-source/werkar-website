@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "werkar-website",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-18",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "werkar-inquiries",
+      "database_id": "a0fc9dff-7e0d-412b-8532-45da8b6b1230",
+      "migrations_dir": "database"
+    }
+  ]
+}
